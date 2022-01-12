@@ -1,0 +1,22 @@
+@extends('layouts.default')
+
+@section('header_content')
+    <h1>Header content del form</h1>
+@endsection
+@section('main_content')
+    <form action="{{ route('comics.store') }}" method="post">
+        @csrf
+        <h2>Main content</h2>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="text" class="form-control" name='title'' id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" name=' description' id="exampleFormControlTextarea1"
+                rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">Invia</button>
+    </form>
+@endsection

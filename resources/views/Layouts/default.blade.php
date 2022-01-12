@@ -14,13 +14,13 @@
 </head>
 
 <body>
-    <header>
+    <header class="container">
         @yield('header_content')
     </header>
-    <main>
+    <main class="container">
         @yield('main_content')
     </main>
-    <footer>
+    <footer class="container">
         @yield('footer_content')
     </footer>
 
