@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title_page', 'Titolo nuovo index')
+
 @section('header_content')
     <h1 class="container">Header Content</h1>
     @foreach ($comics as $comic)
