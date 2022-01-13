@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title_page', 'Pagina Principale')
+@section('title_page', 'Titolo nuovo index')
 
 @section('header_content')
     <h1 class="container">Header Content</h1>
