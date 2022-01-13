@@ -40,8 +40,10 @@ class ComicsController extends Controller
         $newComic = new Comic();
         $newComic->title = $data['title'];
         $newComic->description = $data['description'];
+        $newComic->thumb = $data['thumb'];
         $newComic->save();
         // return $newComic;
+        @dump($data);
         return redirect()->route('comics.index', $newComic->id);
     }
 

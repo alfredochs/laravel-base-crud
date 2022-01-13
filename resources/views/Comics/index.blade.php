@@ -4,20 +4,30 @@
 
 @section('header_content')
     <h1 class="container">Header Content</h1>
-    <ul class="d-flex ">
+    <a href="{{ route('comics.create') }}">Aggiungi Comic</a>
+    {{-- @dump($comics) --}}
+    <div class="d-flex row row-cols-5">
         @foreach ($comics as $comic)
-            <li class="mb-4 border p-2 list-unstyled">
+            <div class="mb-4 border gap-2">
+                <div class="d-flex justify-content-center">
+                    <img src="{{ $comic->thumb }}" alt="" style="max-width:50%">
+                </div>
+                {{-- str_limit($string, $limit = 150, $end = '...') --}}
                 <h5>{{ $comic->title }}</h5>
-                <p class="mb-0">{{ $comic->description }}</p>
-                <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
-                {{-- Delete Comic --}}
-                <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="elimina">
-                </form>
-            </li>
+                <p class="mb-0">{{ str_limit($comic->description, 100, '...') }}</p>
+                <div class="d-flex gap-1">
+
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Modifica</a>
+
+                    {{-- Delete Comic --}}
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class='btn btn-danger ' type="submit" value="elimina">
+                    </form>
+                    {{-- FINE DELETE --}}
+                </div>
+            </div>
         @endforeach
-    </ul>
-    <a href="{{ route('comics.create') }}">Link al form</a>
+    </div>
 @endsection
