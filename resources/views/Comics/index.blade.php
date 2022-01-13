@@ -6,8 +6,12 @@
     <h1 class="container">Header Content</h1>
     @foreach ($comics as $comic)
         <div>
-            <h2>{{ $comic->title }}</h2>
-            <p>{{ $comic->description }}</p>
+            <ul>
+                <li>
+                    <h5>{{ $comic->title }}</h5>
+                    <p>{{ $comic->description }}</p>
+                </li>
+            </ul>
         </div>
     @endforeach
     <a href="{{ route('comics.create') }}">Link al form</a>
