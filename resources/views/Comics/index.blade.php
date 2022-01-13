@@ -10,6 +10,12 @@
                 <h5>{{ $comic->title }}</h5>
                 <p class="mb-0">{{ $comic->description }}</p>
                 <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
+                {{-- Delete Comic --}}
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="elimina">
+                </form>
             </li>
         @endforeach
     </ul>
